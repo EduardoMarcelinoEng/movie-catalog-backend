@@ -3,6 +3,7 @@ const routerBase = '/movie';
 const { resolve } = require('path');
 const { Movie, sequelize } = require(resolve('src', 'app', 'models'));
 const axios = require('axios');
+const { Op } = require("sequelize");
 
 module.exports = function(app) {
 
@@ -13,10 +14,18 @@ module.exports = function(app) {
             const query = {};
 
             if(id) query.id = id;
-            if(title) query.title = title;
-            if(description) query.description = description;
-            if(director) query.director = director;
-            if(producer) query.producer = producer;
+            if(title) query.title = {
+                [Op.like]: `%${title}%`
+            };
+            if(description) query.description = {
+                [Op.like]: `%${description}%`
+            };
+            if(director) query.director = {
+                [Op.like]: `%${director}%`
+            };
+            if(producer) query.producer = {
+                [Op.like]: `%${producer}%`
+            };
 
             const movies = await Movie.findAndCountAll({
                 where: query,
