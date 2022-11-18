@@ -13,6 +13,8 @@ module.exports = function(app) {
             const { id, title, description, director, producer, activePage } = req.query;
             const query = {};
 
+            console.log('Producer', producer);
+
             if(id) query.id = id;
             if(title) query.title = {
                 [Op.like]: `%${title}%`
@@ -58,9 +60,20 @@ module.exports = function(app) {
                         })
                         .catch(error=>{
                             t.rollback();
-                            return res.status(500).json(error);
+                            return res.status(500).json(Object.keys(error).length ? error : '');
                         });
                 });
+        } catch (error) {
+            return res.status(500).json(error.message);
+        }
+    });
+
+    app.delete(routerBase + '/', async (req, res)=>{
+        try {
+            await Movie.destroy({
+                where: {}
+            });
+            return res.status(200).json('Filmes deletados!');
         } catch (error) {
             return res.status(500).json(error.message);
         }
