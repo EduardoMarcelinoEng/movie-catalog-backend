@@ -9,9 +9,19 @@ const { sequelize } = require(resolve('src', 'app', 'models'));
 app.use(cors());
 app.use(express.json());
 
+app.use(express.static(resolve('build')));
+
 consign()
   .include('src/controllers')
   .into(app);
+
+app.get('*', (req, res)=>{
+  try {
+      return res.status(200).sendFile(resolve('build', 'index.html'));
+  } catch (error) {
+      return res.status(500).json(error.message);
+  }
+});
 
 new Promise(async (resolve, reject)=>{
   try {

@@ -9,11 +9,9 @@ module.exports = function(app) {
 
     app.get(routerBase + '/', async (req, res)=>{
         try {
-            
+
             const { id, title, description, director, producer, activePage } = req.query;
             const query = {};
-
-            console.log('Producer', producer);
 
             if(id) query.id = id;
             if(title) query.title = {
