@@ -6,8 +6,8 @@ const development = {
     port: 8080,
     database: {
         "username": "root",
-        "password": null,
-        "database": "database_development",
+        "password": "",
+        "database": "movie_catalog",
         "host": "127.0.0.1",
         "dialect": "mysql"
     }
@@ -15,12 +15,26 @@ const development = {
 
 //Environment settings production
 const production = {
-    port: 8080
+    port: 8080,
+    database: {
+        "username": "root",
+        "password": "",
+        "database": "movie_catalog",
+        "host": "127.0.0.1",
+        "dialect": "mysql"
+    }
 }
 
 //Environment settings test
 const test = {
-    port: 8080
+    port: 8080,
+    database: {
+        "username": "root",
+        "password": "",
+        "database": "movie_catalog",
+        "host": "127.0.0.1",
+        "dialect": "mysql"
+    }
 }
 
 const getObj = () => ({
