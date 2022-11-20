@@ -20,3 +20,7 @@ Toda a configução do projeto é feita no arquivo index.js localizado na pasta 
 
 #EXECUÇÃO DOS TESTES
 -Para testar a API, basta executar o projeto no modo desenvolvimento, e executar o comando npm test na raiz do projeto.
+
+#CONFIGURAÇÃO DO HTTPS
+-Para habilitar o https, marcar no arquivo de configuração a opção isHttps como true, e preencher os caminhos das credenciais do certificados (ca, cert e key).
+Obs.: habilitando o https, o http é desabilitado.
