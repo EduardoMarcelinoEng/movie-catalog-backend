@@ -2,6 +2,8 @@
 const env = "production";
 require('dotenv').config();
 
+const { readFileSync } = require('fs');
+
 //Environment settings development
 const development = {
     port: 8080,
@@ -11,6 +13,12 @@ const development = {
         "database": "movie_catalog",
         "host": "127.0.0.1",
         "dialect": "mysql"
+    },
+    isHttps: false,
+    credentials:{
+        key: readFileSync('/etc/letsencrypt/live/eduardomarcelinodev.com.br/privkey.pem', 'utf8'),
+        cert: readFileSync('/etc/letsencrypt/live/eduardomarcelinodev.com.br/cert.pem', 'utf8'),
+        ca: readFileSync('/etc/letsencrypt/live/eduardomarcelinodev.com.br/chain.pem', 'utf8')
     }
 }
 
@@ -23,6 +31,12 @@ const production = {
         "database": process.env.DATABASEDB,
         "host": "127.0.0.1",
         "dialect": "mysql"
+    },
+    isHttps: true,
+    credentials:{
+        key: readFileSync('/etc/letsencrypt/live/eduardomarcelinodev.com.br/privkey.pem', 'utf8'),
+        cert: readFileSync('/etc/letsencrypt/live/eduardomarcelinodev.com.br/cert.pem', 'utf8'),
+        ca: readFileSync('/etc/letsencrypt/live/eduardomarcelinodev.com.br/chain.pem', 'utf8')
     }
 }
 
@@ -35,6 +49,12 @@ const test = {
         "database": "movie_catalog",
         "host": "127.0.0.1",
         "dialect": "mysql"
+    },
+    isHttps: false,
+    credentials:{
+        key: readFileSync('/etc/letsencrypt/live/eduardomarcelinodev.com.br/privkey.pem', 'utf8'),
+        cert: readFileSync('/etc/letsencrypt/live/eduardomarcelinodev.com.br/cert.pem', 'utf8'),
+        ca: readFileSync('/etc/letsencrypt/live/eduardomarcelinodev.com.br/chain.pem', 'utf8')
     }
 }
 
