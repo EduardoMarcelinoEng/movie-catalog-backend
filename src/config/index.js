@@ -2,8 +2,6 @@
 const env = "development";
 require('dotenv').config();
 
-const { readFileSync } = require('fs');
-
 //Environment settings development
 const development = {
     port: 8080,

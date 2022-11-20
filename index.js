@@ -7,6 +7,7 @@ const { port, isHttps, credentials } = require(resolve('src', 'config'));
 const consign = require('consign');
 const cors = require('cors');
 const { sequelize } = require(resolve('src', 'app', 'models'));
+const { readFileSync } = require('fs');
 
 app.use(cors());
 app.use(express.json());
