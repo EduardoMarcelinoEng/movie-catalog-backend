@@ -15,7 +15,7 @@ Toda a configução do projeto é feita no arquivo index.js localizado na pasta 
 2) Selecionar o ambiente configurado na variável env localizada no arquivo src/config/index.js;
 3) Executar na raiz do projeto o comando npm install; //para instalar as dependências
 4) Executar na raiz do projeto o comando npm run migrate; //para criar a estrutura do banco de dados
-5) (OPCIONAL) - Para executar o frontend dentro do backend deverá ir no projeto do frontend, no arquivo src/config/index.js e alterar o conteúdo da variável env para 'production'. Feito isso, basta gerar o build do frontend, e colar na raiz do projeto do backend. Obs.: para mais detalhes, consulte o README do projeto frontend.
+5) (OPCIONAL) - Para executar o frontend dentro do backend deverá ir no projeto do frontend, no arquivo src/config/index.js e alterar o conteúdo da variável env para 'production'. Feito isso, execute o comando yarn install e logo em seguida, yarn build para gerar o build do frontend, e colar na raiz do projeto do backend. Obs.: para mais detalhes, consulte o README do projeto frontend.
 6) Executar o comando npm start na raiz do projeto.
 
 #EXECUÇÃO DOS TESTES
