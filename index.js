@@ -25,7 +25,11 @@ app.get('*', (req, res)=>{
   }
 });
 
-let server = isHttps ? https.createServer(credentials, app) : http.createServer(app);
+let server = isHttps ? https.createServer({
+  key: readFileSync(credentials.key, 'utf8'),
+  cert: readFileSync(credentials.cert, 'utf8'),
+  ca: readFileSync(credentials.ca, 'utf8')
+}, app) : http.createServer(app);
 
 new Promise(async (resolve, reject)=>{
   try {

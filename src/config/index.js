@@ -1,5 +1,5 @@
 //Variable that defines the current environment
-const env = "production";
+const env = "development";
 require('dotenv').config();
 
 const { readFileSync } = require('fs');
@@ -15,10 +15,10 @@ const development = {
         "dialect": "mysql"
     },
     isHttps: false,
-    credentials:{
-        key: readFileSync('/etc/letsencrypt/live/eduardomarcelinodev.com.br/privkey.pem', 'utf8'),
-        cert: readFileSync('/etc/letsencrypt/live/eduardomarcelinodev.com.br/cert.pem', 'utf8'),
-        ca: readFileSync('/etc/letsencrypt/live/eduardomarcelinodev.com.br/chain.pem', 'utf8')
+    credentials: {
+        key: '',
+        cert: '',
+        ca: ''
     }
 }
 
@@ -32,11 +32,11 @@ const production = {
         "host": "127.0.0.1",
         "dialect": "mysql"
     },
-    isHttps: true,
-    credentials:{
-        key: readFileSync('/etc/letsencrypt/live/eduardomarcelinodev.com.br/privkey.pem', 'utf8'),
-        cert: readFileSync('/etc/letsencrypt/live/eduardomarcelinodev.com.br/cert.pem', 'utf8'),
-        ca: readFileSync('/etc/letsencrypt/live/eduardomarcelinodev.com.br/chain.pem', 'utf8')
+    isHttps: false,
+    credentials: {
+        key: '/etc/letsencrypt/live/eduardomarcelinodev.com.br/privkey.pem',
+        cert: '/etc/letsencrypt/live/eduardomarcelinodev.com.br/cert.pem',
+        ca: '/etc/letsencrypt/live/eduardomarcelinodev.com.br/chain.pem'
     }
 }
 
@@ -51,10 +51,10 @@ const test = {
         "dialect": "mysql"
     },
     isHttps: false,
-    credentials:{
-        key: readFileSync('/etc/letsencrypt/live/eduardomarcelinodev.com.br/privkey.pem', 'utf8'),
-        cert: readFileSync('/etc/letsencrypt/live/eduardomarcelinodev.com.br/cert.pem', 'utf8'),
-        ca: readFileSync('/etc/letsencrypt/live/eduardomarcelinodev.com.br/chain.pem', 'utf8')
+    credentials: {
+        key: '',
+        cert: '',
+        ca: ''
     }
 }
 
